@@ -1,6 +1,13 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
+
+// Enable CORS for all origins
+app.use(cors());
+
+// Enable JSON body parsing
+app.use(express.json());
 
 app.get("/", (_request, response) => {
   response.status(200).send({ message: "Status ok" });
