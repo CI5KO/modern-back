@@ -17,7 +17,10 @@ app.get("/", (_request, response) => {
 // email: test
 // password: uniat
 app.post("/login", (request, response) => {
-  const { email, password }: { email: string; password: string } = request.body;
+  const {
+    email,
+    password,
+  }: { email: string | undefined; password: string | undefined } = request.body;
 
   if (!email || !password) {
     response.status(400).send({ message: "Missing email or password" });
