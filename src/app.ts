@@ -14,20 +14,19 @@ app.get("/", (_request, response) => {
 });
 
 // user test:
-// username: test
+// email: test
 // password: uniat
 app.post("/login", (request, response) => {
-  const { username, password }: { username: string; password: string } =
-    request.body;
+  const { email, password }: { email: string; password: string } = request.body;
 
-  if (!username || !password) {
-    response.status(400).send({ message: "Missing username or password" });
+  if (!email || !password) {
+    response.status(400).send({ message: "Missing email or password" });
     return;
   }
 
-  const key: string = username + password;
+  const key: string = email + password;
 
-  response.status(200).send({ message: `Hello ${username}`, key });
+  response.status(200).send({ message: `Hello ${email}`, key });
 });
 
 export default app;
